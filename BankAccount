@@ -1,0 +1,58 @@
+#include <iostream>
+#include <string>
+
+class BankAccount
+{
+  public:
+    int account_number;
+    std::string owner_name;
+    int available_funds;
+
+};
+
+int main(){
+    // TODO: instantiate and output a bank account
+    BankAccount account1;
+    account1.account_number = 1111111;
+    account1.owner_name = "Bob";
+    account1.available_funds = 6666;
+    
+    std::cout << "Account Info" << "\n";
+    std::cout << "------------" << "\n";
+    std::cout << "The account ID is: " << account1.account_number << "\n"; 
+
+    std::cout << "The name of the account owner is: " << account1.owner_name << "\n";
+    std::cout << "The available funds is: " << account1.available_funds << "\n";
+    
+}
+
+//What if I change the code to:
+// #include <iostream>
+// #include <string>
+
+// class BankAccount
+// {
+//   public:
+//     int account_number(0); //I want to initialize the variables. 
+//     std::string owner_name("Alics");
+//     int available_funds(0);
+
+// };
+
+// int main(){
+//     // TODO: instantiate and output a bank account
+//     BankAccount account1;
+//     account1.account_number = 1111111;
+//     account1.owner_name = "Bob";
+//     account1.available_funds = 6666;
+    
+//     std::cout << "Account Info" << "\n";
+//     std::cout << "------------" << "\n";
+//     std::cout << "The account ID is: " << account1.account_number << "\n"; 
+
+//     std::cout << "The name of the account owner is: " << account1.owner_name << "\n";
+//     std::cout << "The available funds is: " << account1.available_funds << "\n";
+    
+// }
+
+
