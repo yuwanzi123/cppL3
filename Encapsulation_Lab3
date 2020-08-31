@@ -1,0 +1,41 @@
+#include <string>
+#include <cstring>
+#include <iostream>
+
+class Car {
+    // TODO: Declare private attributes
+    private:
+    int horsepower; 
+    int weight;
+    std::string brand;
+        
+    // TODO: Declare getter and setter for brand
+    public:
+    std::string SetBrand(){};
+    int GetBrand(){};
+        
+};
+
+// Define setters
+Car::SetBrand(brand){
+    std::string Brand = brand;
+    return Brand;
+}
+// Define getters
+Car::GetBrand(){
+    char StringBrand[]{Brand};
+    const int length{sizeof(StringBrand) / sizeof(StringBrand[0])};
+    for (int index{0}; index < length; ++index){
+        std::cout << static_cast<int>(StringBrand[index]) << ' ';
+    }
+    std::cout << '\n';
+    return 0;
+}
+
+// Test in main()
+int main() 
+{
+    Car car;
+    car.SetBrand("Peugeot");
+    std::cout << car.GetBrand() << "\n";   
+}
