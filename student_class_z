@@ -1,0 +1,52 @@
+#include <cassert>
+#include <stdexcept>
+
+// TODO: Define "Student" class
+class Student {
+ public:
+  // constructor
+    student(std::string name, int grade, float gpa){
+        name_ = name;
+        grade_ = grade;
+        gpa_ = gpa;
+    }
+  // accessors
+    std::string Name(){return name_;}
+    int Grade(){return grade_;}
+    float GPA(){return gpa_;}
+    
+  // mutators
+    void Name(std::string name){
+        name_ = name;
+        Validate();
+    }
+
+    void Grade(int grade){
+        grade_ = grade;
+        Validate();
+    }
+    
+    void GPA(float gpa){
+        gpa_ = gpa;
+        Validate();
+    }
+
+ private:
+  // name
+  // grade
+  // GPA
+    std::string name_;
+    int grade_;
+    float gpa_;
+    void Validate(){
+        if (grade_ < 0 || grade_ > 12 || gpa_ < 0.0 || gpa_ > 4.0)
+            throw std::invalid_argument("Wrong Grade! OR Wrong GPA");
+};
+
+// TODO: Test
+int main() {
+    Student student("Alice", 9, 4.0);
+    assert(student.Name() == "Alice");
+    assert(student.Grade() == 9);
+    assert(student.GPA() == 4.0);
+}
