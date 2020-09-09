@@ -1,0 +1,31 @@
+#include <cassert>
+#include <cmath>
+#include <stdexcept>
+
+// TODO: Define class Sphere
+class Sphere {
+ public:
+  // Constructor
+    Sphere(int radius){
+        radius_ = radius;
+    }
+
+  // Accessors
+    int Radius(){return radius_;}
+    int Volume(){
+        int volume;
+        volume = 4 * M_PI * Radius() * Radius() * Radius() / 3;
+        return volume;
+    }
+
+ private:
+  // Private members
+    int radius_;
+};
+
+// Test
+int main(void) {
+  Sphere sphere(5);
+  assert(sphere.Radius() == 5);
+  assert(abs(sphere.Volume() - 523.6) < 1);
+}
