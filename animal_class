@@ -1,0 +1,48 @@
+#include<iostream>
+#include<string>
+using std::string;
+
+// Define base class Animal
+class Animal {
+public:
+    string color;
+    string name;
+    int age;
+    
+};
+
+// Declare derived class Snake
+class Snake : public Animal {
+public:
+    float length;
+    void MakeSound(){
+        std::cout << "SiSiSi\n";
+    }
+};
+
+// Declare derived class Cat
+class Cat : public Animal {
+public:
+    float height;
+    void MakeSound(){
+        std::cout << "MiaoMiaoMiao\n";
+    }
+};
+
+// Test in main()
+int main(){
+    Snake sally;
+    Cat casy;
+    sally.MakeSound();
+    casy.MakeSound();
+    
+    sally.color = "black";
+    sally.name = "Sally";
+    sally.age = 3;
+    sally.length = 1.5;
+    std::cout << "The " << sally.color << " snake's name is " << sally.name << "\n";
+    std::cout << "It is " << sally.age << " years old. \n";
+    std::cout << "Its length is " << sally.length << " meters.\n";
+    std::cout << "Its voice is " << sally.MakeSound() << "\n"
+    
+}
