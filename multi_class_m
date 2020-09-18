@@ -1,0 +1,50 @@
+#include <cassert>
+#include <iostream>
+// TODO: Declare Vehicle as the base class
+class Vehicle {
+public:
+int get_seats_num(){
+    return seats;
+}
+int get_wheels_num(){
+    return wheels;
+}
+void set_wheels_num(int wheels_input){
+    if (wheels_input != 4){
+        std::cout << "Wheels number must be four!" << std::endl;
+        throw std::invalid_argument("Invalid input.");
+    }
+    else{
+        wheels = wheels_input;
+    }
+}
+void set_seats_num(int seats_input){
+    seats = seats_input;
+}
+private:
+    int wheels;
+    int seats;
+    
+};
+// TODO: Derive Car from Vehicle
+class Car : public Vehicle {
+    
+};
+// TODO: Derive Sedan from Car
+class Sedan : public Car {
+    
+};
+// TODO: Update main to pass the tests
+int main() {
+    Sedan sedan1;
+    sedan1.set_seats_num(4);
+    sedan1.set_wheels_num(4);
+    assert(sedan1.get_seats_num() == 4);
+    assert(sedan1.get_wheels_num() == 4);
+    /************/
+    Sedan sedan2;
+    sedan2.set_seats_num(4);
+    sedan2.set_wheels_num(5); // notice this is 5
+    assert(sedan2.get_seats_num() == 4);
+    assert(sedan2.get_wheels_num() == 4);
+}
