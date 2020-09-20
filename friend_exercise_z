@@ -1,0 +1,31 @@
+class Square{
+public:
+    Square(int s):side_(s){}; 	//如何理解“private 数据是受保护的”？
+/*“受保护” ！= “不可访问”； 在这个例子中，只有Square这个class可以访问side_，并且赋值给它。其他class是不能访问或者赋值side_的。在Square类中想要访问side_就必须写一个访问程序*/
+private:
+    friend class Rectangle;
+    float side_;
+};
+
+class Rectangle{
+public:
+    Rectangle(const Square& a) {
+        width_ = a.side_;
+        height_ = a.side_;
+    };
+    int Area() const {
+        return width_ * height_; 
+/*由于height_和width_ 都是Rectangle的private变量，所以Area函数可以直接访问，其实也还不是很清楚。那getter和setter的作用体现在哪里？*/
+    };
+private:
+    float width_ = 0;
+    float height_ = 0;
+    
+};
+
+int main()
+{
+    Square square(4);
+    Rectangle rectangle(square);
+    assert(rectangle.Area() == 16); 
+}
