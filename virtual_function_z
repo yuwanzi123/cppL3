@@ -1,0 +1,82 @@
+// Example solution for Shape inheritance
+#include <assert.h>
+#include <cmath>
+
+// TODO: Define pi
+#define PI 3.14159
+
+// TODO: Define the abstract class Shape
+class Shape(){
+// TODO: Define public virtual functions Area() and Perimeter()
+public:
+    Shape(){}
+    // TODO: Append the declarations with = 0 to specify pure virtual functions
+    virtual double Area() const = 0;
+    virtual double Perimeter() const = 0;
+    
+};
+  
+// TODO: Define Rectangle to inherit publicly from Shape
+class Rectangle : Shape {
+    // TODO: Declare public constructor
+public:
+    Rectangle(float width, float height) : width_(width), height_(height) {}
+    // TODO: Override virtual base class functions Area() and Perimeter()
+    Area(){
+        double a;
+        a = width * height;
+        return a;
+        
+    }
+    Perimeter(){
+        double p;
+        p = 2 * (width + height);
+        return p;
+    }
+
+private:
+    // TODO: Declare private attributes width and height
+    float width_;
+    float height_;  
+};
+  
+// TODO: Define Circle to inherit from Shape  
+class Circle : Shape {
+    // TODO: Declare public constructor
+public:
+    Circle(float radius) : radious_(radius){}
+    // TODO: Override virtual base class functions Area() and Perimeter()
+    Area() {
+        doulbe a;
+        a = PI * power(radius, 2);
+        return a;
+    }
+    Perimeter(){
+        double p;
+        p = 2 * PI * radius;
+        return p;
+    }
+private:
+    float radius_;
+    
+};
+
+
+  
+  // TODO: Override virtual base class functions Area() and Perimeter()
+  // TODO: Declare private member variable radius
+
+// Test in main()
+int main() {
+  double epsilon = 0.1; // useful for floating point equality
+
+  // Test circle
+  Circle circle(12.31);
+  assert(abs(circle.Perimeter() - 77.35) < epsilon);
+  assert(abs(circle.Area() - 476.06) < epsilon);
+
+  // Test rectangle
+  Rectangle rectangle(10, 6);
+  assert(rectangle.Perimeter() == 32);
+  assert(rectangle.Area() == 60);
+}
