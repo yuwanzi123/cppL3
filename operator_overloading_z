@@ -17,8 +17,8 @@ public:
     Point(int x = 0, int y = 0) : x_(x), y_(y){}
     Point operator + (const Point& addend){
         Point sum;
-        sum.x_ = x + addend.x_;
-        sum.y_ = y + addend.y_;
+        sum.x_ = x_ + addend.x_;
+        sum.y_ = y_ + addend.y_;
         return sum;
     }
     
