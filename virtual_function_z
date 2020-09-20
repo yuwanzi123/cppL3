@@ -6,10 +6,10 @@
 #define PI 3.14159
 
 // TODO: Define the abstract class Shape
-class Shape(){
+class Shape{    //Remember, not Shape().
 // TODO: Define public virtual functions Area() and Perimeter()
 public:
-    Shape(){}
+    //Shape(){} why don't we need a constructor? 
     // TODO: Append the declarations with = 0 to specify pure virtual functions
     virtual double Area() const = 0;
     virtual double Perimeter() const = 0;
@@ -17,43 +17,43 @@ public:
 };
   
 // TODO: Define Rectangle to inherit publicly from Shape
-class Rectangle : Shape {
+class Rectangle : public Shape {
     // TODO: Declare public constructor
 public:
-    Rectangle(float width, float height) : width_(width), height_(height) {}
+    Rectangle(double width, double height) : width_(width), height_(height) {}
     // TODO: Override virtual base class functions Area() and Perimeter()
-    Area(){
-        double a;
-        a = width * height;
+    double Area() const override{  //Remember, this structure, const override.
+        double a; 
+        a = width_ * height_;    //Remember, inside the class, you have to use the private variable not width * height
         return a;
         
     }
-    Perimeter(){
+    double Perimeter(){    //Remember, to declare the function type. 
         double p;
-        p = 2 * (width + height);
+        p = 2 * (width_ + height_);
         return p;
     }
 
 private:
     // TODO: Declare private attributes width and height
-    float width_;
+    float width_;    //why do we need double type?
     float height_;  
 };
   
 // TODO: Define Circle to inherit from Shape  
-class Circle : Shape {
+class Circle : public Shape {
     // TODO: Declare public constructor
 public:
-    Circle(float radius) : radious_(radius){}
+    Circle(double radius) : radius_(radius){}
     // TODO: Override virtual base class functions Area() and Perimeter()
-    Area() {
-        doulbe a;
-        a = PI * power(radius, 2);
+    double Area() {
+        double a;
+        a = PI * pow(radius_, 2);
         return a;
     }
-    Perimeter(){
+    double Perimeter(){
         double p;
-        p = 2 * PI * radius;
+        p = 2 * PI * radius_;
         return p;
     }
 private:
