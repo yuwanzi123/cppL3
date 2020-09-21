@@ -22,13 +22,13 @@ class Rectangle : public Shape {
 public:
     Rectangle(double width, double height) : width_(width), height_(height) {}
     // TODO: Override virtual base class functions Area() and Perimeter()
-    double Area() const override{  //Remember, this structure, const override.
+    double Area() const override {  //Remember, this structure, const override.
         double a; 
         a = width_ * height_;    //Remember, inside the class, you have to use the private variable not width * height
         return a;
         
     }
-    double Perimeter(){    //Remember, to declare the function type. 
+    double Perimeter() const override {    //Remember, to declare the function type. 
         double p;
         p = 2 * (width_ + height_);
         return p;
@@ -46,12 +46,12 @@ class Circle : public Shape {
 public:
     Circle(double radius) : radius_(radius){}
     // TODO: Override virtual base class functions Area() and Perimeter()
-    double Area() {
+    double Area() const override {
         double a;
         a = PI * pow(radius_, 2);
         return a;
     }
-    double Perimeter(){
+    double Perimeter() const override {
         double p;
         p = 2 * PI * radius_;
         return p;
