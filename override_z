@@ -8,8 +8,8 @@
 class VehicleModel{
 public:
     // TODO: Declare virtual function Move()
-    virtual void Move(double v, double phi) const = 0;
-    
+    //virtual void Move(double v, double phi) const = 0;
+    virtual void Move(double v, double phi) = 0;
 };
   
 
@@ -20,7 +20,7 @@ public:
     double x = 0.0;
     double y = 0.0;
     double theta = 0.0;
-    void Move(double v, double phi) const override {
+    void Move(double v, double phi) override {
         theta += phi;
         x += v * cos(theta);
         y += v * cos(theta);
@@ -39,7 +39,7 @@ public:
     double y = 0.0;
     double L = 2.0;
     double theta = 0.0;
-    void Move(double v,  double phi) const override{
+    void Move(double v,  double phi) override{
         theta += v / L * tan(phi);
         x += v * cos(theta);
         y += v * cos(theta);
